@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from .models import Nyx, NyxSQL
 from .db import init_db, get_session
 from .get_text import get_text_from_img
-from .regex_practice import format_text
+from .regex_logic import format_text
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

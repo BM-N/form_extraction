@@ -43,7 +43,8 @@ def format_text(text):
             value1, value2 = value.split(sep=':', maxsplit=1)
             value1 = value1.strip()
             value2 = value2.strip()
-        # formatação para hora
+        
+        # Hour format
         if value1.lower() in ['hora', 'horário']:
             hora = re.compile(r'^\d{2}:\d{2}$')
             if not bool(hora.match(value2)):
@@ -51,7 +52,7 @@ def format_text(text):
                     value2 = value2[:2] + ':' + value2[2:]
                 else:
                     print(f"Value passed is not in horário format.")
-        # Falta formatação para data
+        
         if value1.lower() in ['data', 'Nasc', 'data da cirurgia']:
             data = re.compile(r'^\d{2}/\d{2}/\d{4}$')
             if not bool(data.match(value2)):
@@ -67,7 +68,7 @@ def format_text(text):
                     else:
                         print('Formatação inválida para a data')           
 
-    # Maybe add data validation for each field. ex. number of digits, type of string etc.
+    # Maybe add data validation for each field. ex. number of digits, type of string etc. => Future improvement
         final_dict[value1.lower()] = value2.lower()
     
     return final_dict
